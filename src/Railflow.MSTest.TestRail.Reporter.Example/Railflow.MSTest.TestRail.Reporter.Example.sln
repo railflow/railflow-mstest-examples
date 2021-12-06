@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31911.196
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Railflow.MSTest.TestRail.Reporter.Example", "Railflow.MSTest.TestRail.Reporter.Example\Railflow.MSTest.TestRail.Reporter.Example.csproj", "{F66FBE46-6172-4CDB-B47D-0E157659FABB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F66FBE46-6172-4CDB-B47D-0E157659FABB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F66FBE46-6172-4CDB-B47D-0E157659FABB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F66FBE46-6172-4CDB-B47D-0E157659FABB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F66FBE46-6172-4CDB-B47D-0E157659FABB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {98E51EC6-FBAF-40F5-9A29-F182BFAC9289}
+	EndGlobalSection
+EndGlobal
