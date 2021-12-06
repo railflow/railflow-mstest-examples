@@ -27,7 +27,24 @@ Apply custom attributes to test methods/classes to mark them with TestRail metad
 Here is an example showcasing markers propagation logic:
 
 ```c#
-TBD
+[RailflowTestClass(Title = "class-title", CaseFields = new[] { "class-field-1=value1", "class-field-2=value2" })]
+    public class RailflowAttributesExample
+    {
+        [RailflowTestMethod(CaseFields = new[] { "func-field-1=value1", "func-field-2=value2" })]
+        public void TestMethod1()
+        {
+        }
+
+        [RailflowTestMethod(TestRailIds = new[] { 1, 2, 3 })]
+        public void TestMethod2()
+        {
+        }
+
+        [TestMethod]
+        public void TestMethod3()
+        {
+        }
+    }
 ```
 
 # Running tests
@@ -48,5 +65,17 @@ XML output
 Here is the output of tests from examples above (<u>non-relevant pieces are skipped</u>).
 
 ```xml
-TBD
+<Results>
+	<UnitTestResult testName="TestMethod2">
+		<Output>
+			<StdOut>railflow-markers:{"Title":"class-title","TestRailIds":[1,2,3],"CaseFields":["class-field-1=value1","class-field-2=value2"]}</StdOut>
+		</Output>
+	</UnitTestResult>
+	<UnitTestResult testName="TestMethod3" />
+	<UnitTestResult testName="TestMethod1">
+		<Output>
+			<StdOut>railflow-markers:{"Title":"class-title","CaseFields":["func-field-1=value1","func-field-2=value2"]}</StdOut>
+		</Output>
+	</UnitTestResult>
+</Results>
 ```
