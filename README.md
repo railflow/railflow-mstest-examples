@@ -24,7 +24,7 @@ Writing tests
 
 Apply custom attributes to test methods/classes to mark them with TestRail metadata. See [railflow-mstest](https://github.com/railflow/railflow-mstest#railflowmstesttestrailreporter)  for more info.
 
-Here is an example showcasing markers propagation logic:
+Here is an example test:
 
 ```c#
 [RailflowTestClass(Title = "class-title", CaseFields = new[] { "class-field-1=value1", "class-field-2=value2" })]
@@ -47,6 +47,8 @@ Here is an example showcasing markers propagation logic:
     }
 ```
 
+
+
 # Running tests
 
 Use [dotnet CLI](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-test) to run your tests and generate output XML.
@@ -66,16 +68,20 @@ Here is the output of tests from examples above (<u>non-relevant pieces are skip
 
 ```xml
 <Results>
-	<UnitTestResult testName="TestMethod2">
-		<Output>
-			<StdOut>railflow-markers:{"Title":"class-title","TestRailIds":[1,2,3],"CaseFields":["class-field-1=value1","class-field-2=value2"]}</StdOut>
-		</Output>
-	</UnitTestResult>
-	<UnitTestResult testName="TestMethod3" />
-	<UnitTestResult testName="TestMethod1">
-		<Output>
-			<StdOut>railflow-markers:{"Title":"class-title","CaseFields":["func-field-1=value1","func-field-2=value2"]}</StdOut>
-		</Output>
-	</UnitTestResult>
+  <UnitTestResult testName="TestMethod1">
+    <Output>
+      <StdOut>railflow-markers:{"ClassMarkers":{"Title":"class-title","CaseFields":["class-field-1=value1","class-field-2=value2"]},"MethodMarkers":{"CaseFields":["func-field-1=value1","func-field-2=value2"]}}</StdOut>
+    </Output>
+  </UnitTestResult>
+  <UnitTestResult testName="TestMethod2">
+    <Output>
+      <StdOut>railflow-markers:{"ClassMarkers":{"Title":"class-title","CaseFields":["class-field-1=value1","class-field-2=value2"]},"MethodMarkers":{"TestRailIds":[1,2,3]}}</StdOut>
+    </Output>
+  </UnitTestResult>
+  <UnitTestResult testName="TestMethod3">
+    <Output>
+      <StdOut>railflow-markers:{"ClassMarkers":{"Title":"class-title","CaseFields":["class-field-1=value1","class-field-2=value2"]},"MethodMarkers":{}}</StdOut>
+    </Output>
+  </UnitTestResult>
 </Results>
 ```
